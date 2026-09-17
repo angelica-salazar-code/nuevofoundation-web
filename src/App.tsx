@@ -12,6 +12,7 @@ import {
   WhatWeDo,
   GetInvolved,
   WorkshopChecklist,
+  WorkshopPreparationChecklist,
   ComingSoon
 } from "./components/static/pages";
 import { VirtualSessions } from "./components/virtualSessions/VirtualSessions";
@@ -132,6 +133,7 @@ class App extends React.Component<{}, AppState> {
                     <Route path={Const.ContactPage} element={<Contact />} />
                     <Route path={Const.GetInvolvedPage} element={<GetInvolved />} />
                     <Route path={Const.WorkshopChecklistPage} element={<WorkshopChecklist />} />
+                    <Route path={Const.WorkshopPreparationChecklistPage} element={<WorkshopPreparationChecklist />} />
                     <Route path={Const.ComingSoonPage} element={<ComingSoon />} />
                   </Routes>
                 </RouteMainContent>

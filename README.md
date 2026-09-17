@@ -90,6 +90,36 @@ individual checkmarks are not sent to analytics. Print styling includes every
 entry and permission safeguard and hides site navigation and controls only while
 this page is open.
 
+### School workshop preparation checklist
+
+`/workshop-preparation-checklist` is a separate, directly accessed page titled
+**Nuevo Foundation What to do before a workshop Checklist**, with the subtitle
+**For the school representative**. It uses the Nuevo Foundation logo,
+yellow/black/white colors, and website fonts. It has no school information
+fields and no submission button, and no navigation links to it have been added.
+
+Preparation is split into In-person workshops (four items) and Virtual workshops
+(nine items), each with independent checkmarks and its own print button. Both
+lists start with the same four requirements: allowlisting `codebunga.com`,
+`workshops.nuevofoundation.org`, and `earsketch.gatech.edu`; a room with a laptop
+and projector; reviewing the chosen workshop; and explaining the post-event survey
+in the final 15 minutes. The virtual list adds headphones, a Google Meet invitation
+with NF screen-sharing permission when applicable, joining the meeting using the
+invitation, turning off students' microphones to avoid echo, and monitoring
+students' chat content to avoid distractions.
+
+The three website addresses and the inline Workshops link in item 3 are clickable
+and open in new tabs, including the EarSketch destination
+`https://earsketch.gatech.edu/landing/#/`. Clicking a link does not tick its
+checkbox. The survey link is still pending and must not be invented.
+
+All items are reminders only: checking them does not change device, network, or
+meeting settings, send invitations, or submit a survey. There is no browser
+storage, so checkmarks clear on reload or navigation away. "Print in-person copy"
+and "Print virtual copy" print only that format, and "Print a copy" prints both;
+closing or cancelling the print dialog restores both formats without clearing
+checkmarks.
+
 ### Available Scripts
 
 In the project directory, you can run:

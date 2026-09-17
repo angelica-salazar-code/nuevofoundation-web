@@ -12,6 +12,7 @@ export class Const {
   public static MembersAccount: string = "/members/:id";
   public static GetInvolvedPage: string = "/get-involved";
   public static WorkshopChecklistPage: string = "/workshop-checklist";
+  public static WorkshopPreparationChecklistPage: string = "/workshop-preparation-checklist";
   public static ComingSoonPage: string = "/coming-soon";
 
   public static WordpressEndpoint?: string =
