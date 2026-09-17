@@ -33,8 +33,8 @@ describe("Workshop coordination preview", () => {
     expect(screen.queryByRole("group", { name: "Virtual workshops" })).not.toBeInTheDocument();
     expect(screen.queryByText("Checklist before the workshop")).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Print virtual copy" })).not.toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Submit to Nuevo Foundation" })).toBeDisabled();
-    expect(screen.getByText("Preview only: answers are not sent or saved.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Send by email" })).toBeEnabled();
+    expect(screen.getByText("Your answers are sent using your own email app.")).toBeInTheDocument();
     expect(screen.getByText(/after your school and Nuevo Foundation have agreed/)).toBeInTheDocument();
     expect(screen.queryByLabelText(/student name/i)).not.toBeInTheDocument();
   });
@@ -80,6 +80,8 @@ describe("Workshop coordination preview", () => {
   it("supports keyboard entry, checkbox Space and radio arrow keys", async () => {
     const user = userEvent.setup();
     render(<WorkshopCoordinationChecklist />);
+    await user.tab();
+    expect(screen.getByRole("link", { name: "contact@nuevofoundation.org" })).toHaveFocus();
     for (const label of [
       "School name", "School representative's email address", "Date of event",
       "How many students will attend?"
@@ -97,6 +99,8 @@ describe("Workshop coordination preview", () => {
     expect(screen.getByRole("radio", { name: "Beginner" })).toHaveFocus();
     await user.keyboard("[Space][ArrowRight]");
     expect(screen.getByRole("radio", { name: "Intermediate" })).toBeChecked();
+    await user.tab();
+    expect(screen.getByRole("button", { name: "Send by email" })).toHaveFocus();
     await user.tab();
     expect(screen.getByRole("button", { name: "Print a copy" })).toHaveFocus();
   });
@@ -143,9 +147,50 @@ describe("Workshop coordination preview", () => {
       .toEqual(["Example School", "coordinator@example.test", "2026-10-15", "25"]);
     expect(Array.from(container.querySelectorAll(".print-mark")).filter(node => node.textContent === "X"))
       .toHaveLength(2);
-    expect(fireEvent.submit(screen.getByRole("form"))).toBe(false);
     expect(ReactGA.pageview).toHaveBeenCalledTimes(1);
-    expect(screen.queryByText(/successfully sent/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+  });
+
+  it("opens the visitor's own email app addressed to Nuevo Foundation", async () => {
+    const user = userEvent.setup();
+    const assigned: string[] = [];
+    const original = window.location;
+    Object.defineProperty(window, "location", {
+      configurable: true,
+      value: {
+        ...original,
+        set href(value: string) {
+          assigned.push(value);
+        },
+        get href() {
+          return assigned[assigned.length - 1] ?? "";
+        }
+      }
+    });
+    try {
+      render(<WorkshopCoordinationChecklist />);
+      await user.type(screen.getByLabelText("School name"), "Example School");
+      await user.type(screen.getByLabelText("School representative's email address"), "coordinator@example.test");
+      fireEvent.change(screen.getByLabelText("Date of event"), { target: { value: "2026-10-15" } });
+      fireEvent.change(screen.getByRole("spinbutton"), { target: { value: "25" } });
+      await user.click(screen.getByRole("checkbox", { name: "Tablet" }));
+      await user.click(screen.getByRole("checkbox", { name: "Not sure" }));
+      await user.click(screen.getByRole("radio", { name: "Beginner" }));
+      fireEvent.submit(screen.getByRole("form"));
+      expect(assigned).toHaveLength(1);
+      const mailto = assigned[0];
+      expect(mailto.startsWith("mailto:contact@nuevofoundation.org?")).toBe(true);
+      const body = decodeURIComponent(mailto.split("&body=")[1]);
+      expect(body).toContain("School name: Example School");
+      expect(body).toContain("Date of event: 2026-10-15");
+      expect(body).toContain("How many students will attend?: 25");
+      expect(body).toContain("Devices students will use: Tablet");
+      expect(body).toContain("Operating systems: Not sure");
+      expect(body).toContain("Students' computer experience level: Beginner");
+      expect(screen.getByRole("status")).toHaveTextContent(/press Send/);
+    } finally {
+      Object.defineProperty(window, "location", { configurable: true, value: original });
+    }
   });
 
   it("keeps answers out of browser storage and clears them on remount", async () => {

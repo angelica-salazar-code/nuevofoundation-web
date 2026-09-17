@@ -5,7 +5,7 @@ import { Const } from "../../../Const";
 import { ChecklistPrintStyles } from "../common/ChecklistPrintStyles";
 import { SchoolChecklistPage } from "../common/SchoolChecklistPage";
 
-const title = "Nuevo Foundation What to do before a workshop Checklist";
+const title = "Nuevo Foundation: What to do before a workshop Checklist";
 interface PreparationItem {
   id: string;
   text: string;
@@ -180,6 +180,11 @@ export const WorkshopPreparationChecklist: React.FC = () => {
         <img className="coordination-logo" src={logo} alt="Nuevo Foundation" width="340" height="54" />
         <h1 tabIndex={-1}>{title}</h1>
         <p><strong>For the school representative</strong></p>
+        <p>
+          Please work through this checklist before your school&apos;s workshop
+          so that everything is ready for your students on the day.
+        </p>
+        <p>Please do not include student names, photographs, or other student personal information.</p>
         <div className="preview-notice screen-only">
           Checkmarks are not saved or sent. Reloading or leaving this page clears them.
           You can print a blank or completed copy.

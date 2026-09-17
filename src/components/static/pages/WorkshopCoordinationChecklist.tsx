@@ -6,6 +6,7 @@ import { ChecklistPrintStyles } from "../common/ChecklistPrintStyles";
 import { SchoolChecklistPage } from "../common/SchoolChecklistPage";
 
 const title = "Nuevo Foundation: Workshop Coordination Checklist";
+const recipient = "contact@nuevofoundation.org";
 const devices = ["Laptop", "Tablet"];
 const operatingSystems = ["Windows", "macOS", "ChromeOS", "iPadOS", "Android", "Linux", "Not sure"];
 const experienceLevels = [
@@ -28,6 +29,35 @@ export const WorkshopCoordinationChecklist: React.FC = () => {
   });
   const [selected, setSelected] = React.useState<ReadonlySet<string>>(() => new Set());
   const [experience, setExperience] = React.useState("");
+  const [emailOpened, setEmailOpened] = React.useState(false);
+
+  const selectionsFor = (options: string[]): string[] =>
+    options.filter(option => selected.has(option));
+
+  const buildEmailBody = (): string => {
+    const lines = [
+      "Workshop coordination details",
+      "",
+      ...detailFields.map(field => `${field.label}: ${details[field.key]}`),
+      `Devices students will use: ${selectionsFor(devices).join(", ")}`,
+      `Operating systems: ${selectionsFor(operatingSystems).join(", ")}`,
+      `Students' computer experience level: ${experience}`,
+      "",
+      "Sent from the Nuevo Foundation Workshop Coordination Checklist."
+    ];
+    return lines.join("\r\n");
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    const subject = `Workshop coordination details - ${details.school}`;
+    const mailto =
+      `mailto:${recipient}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(buildEmailBody())}`;
+    setEmailOpened(true);
+    window.location.href = mailto;
+  };
 
   React.useEffect(() => {
     const previousTitle = document.title;
@@ -83,13 +113,15 @@ export const WorkshopCoordinationChecklist: React.FC = () => {
         </p>
         <p>Please do not include student names, photographs, or other student personal information.</p>
         <div className="preview-notice screen-only" id="coordination-preview-notice">
-          <strong>Preview only: answers are not sent or saved.</strong>{" "}
-          Email submission will be enabled after the receiving inbox and delivery
-          setup are confirmed. Reloading or leaving this page clears your answers.
-          You can print a blank or completed copy.
+          <strong>Your answers are sent using your own email app.</strong>{" "}
+          Selecting <strong>Send by email</strong> opens a pre-filled message to{" "}
+          <a href={`mailto:${recipient}`}>{recipient}</a> so you can review it and
+          press Send yourself. Nothing is saved on this website, and nothing is
+          sent until you send the message. Reloading or leaving this page clears
+          your answers. You can print a blank or completed copy.
         </div>
-        <form aria-label="Workshop coordination form" onSubmit={event => event.preventDefault()}>
-          <p className="screen-only">The school, event, and student information fields are required for the planned submission.</p>
+        <form aria-label="Workshop coordination form" onSubmit={handleSubmit}>
+          <p className="screen-only">The school, event, and student information fields are required before you can send the email.</p>
           <section className="details-section" aria-labelledby="coordination-details-heading">
             <h2 id="coordination-details-heading">School and event details</h2>
             <div className="details-grid">
@@ -155,11 +187,19 @@ export const WorkshopCoordinationChecklist: React.FC = () => {
             ))}
           </fieldset>
           <div className="actions screen-only">
-            <button type="submit" disabled aria-describedby="coordination-preview-notice">
-              Submit to Nuevo Foundation
+            <button type="submit" aria-describedby="coordination-preview-notice">
+              Send by email
             </button>
             <button type="button" onClick={() => window.print()}>Print a copy</button>
           </div>
+          {emailOpened && (
+            <p className="screen-only" role="status">
+              Your email app should now be open with your answers filled in.
+              Please check the message and press Send. If nothing opened, use the
+              Print a copy button and email the printout to{" "}
+              <a href={`mailto:${recipient}`}>{recipient}</a>.
+            </p>
+          )}
         </form>
       </div>
     </SchoolChecklistPage>

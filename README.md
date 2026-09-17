@@ -73,7 +73,7 @@ The Nuevo Foundation is dedicated to inspiring kids to be curious, confident, an
 The **Nuevo Foundation: Workshop Delivery Checklist** is available directly at
 `/workshop-checklist` on the main website. It is a public page, not a private
 resource; it intentionally has no menu, footer, or Get Involved link.
-Its subtitle is "For the Nuevo Foundation team who is delivering a workshop".
+Its subtitle is "For the Nuevo Foundation team member who is delivering a workshop".
 
 Print a fresh blank copy for each workshop, or use the 20 optional on-screen
 checkboxes (11 before, 6 during, 3 after) and print their current state.
@@ -93,7 +93,7 @@ this page is open.
 ### School workshop preparation checklist
 
 `/workshop-preparation-checklist` is a separate, directly accessed page titled
-**Nuevo Foundation What to do before a workshop Checklist**, with the subtitle
+**Nuevo Foundation: What to do before a workshop Checklist**, with the subtitle
 **For the school representative**. It uses the Nuevo Foundation logo,
 yellow/black/white colors, and website fonts. It has no school information
 fields and no submission button, and no navigation links to it have been added.
@@ -131,10 +131,13 @@ device choices, operating-system choices, and one computer experience level with
 examples. Devices and operating systems allow multiple selections. The student
 count must be a whole number of at least one.
 
-**Email sending is not enabled.** The Submit button is disabled and a visible
-preview notice explains that the receiving inbox and email setup still need
-confirmation. The page makes no submission requests and does not send field values
-to analytics. Do not advertise it as a working response-collection service.
+**Email sending uses the visitor's own email app.** The **Send by email** button
+builds a `mailto:` message addressed to `contact@nuevofoundation.org` (the address
+already published on the Contact page), pre-filled with the submitted answers. The
+visitor reviews the message and presses Send themselves. The website itself stores
+nothing, makes no submission requests to any server or third-party form service, and
+does not send field values to analytics. Browser form validation runs first, so the
+email only opens once the required fields are valid.
 There is no browser storage; answers clear on reload or navigation away. Printing
 includes the logo, current answers, options, and experience examples, and also
 supports a blank copy. No student personal-information or file-upload fields are
