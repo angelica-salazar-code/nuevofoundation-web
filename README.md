@@ -120,6 +120,26 @@ and "Print virtual copy" print only that format, and "Print a copy" prints both;
 closing or cancelling the print dialog restores both formats without clearing
 checkmarks.
 
+### Workshop coordination preview
+
+`/workshop-coordination-checklist` is a separate, directly accessed page for the
+school representative after a workshop has been agreed upon. It uses the existing
+Nuevo Foundation logo, yellow/black palette, and website fonts.
+
+Its seven fields are school name, representative email, event date, student count,
+device choices, operating-system choices, and one computer experience level with
+examples. Devices and operating systems allow multiple selections. The student
+count must be a whole number of at least one.
+
+**Email sending is not enabled.** The Submit button is disabled and a visible
+preview notice explains that the receiving inbox and email setup still need
+confirmation. The page makes no submission requests and does not send field values
+to analytics. Do not advertise it as a working response-collection service.
+There is no browser storage; answers clear on reload or navigation away. Printing
+includes the logo, current answers, options, and experience examples, and also
+supports a blank copy. No student personal-information or file-upload fields are
+provided. No navigation links to this preview have been added.
+
 ### Available Scripts
 
 In the project directory, you can run:

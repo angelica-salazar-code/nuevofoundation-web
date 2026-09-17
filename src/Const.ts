@@ -13,6 +13,7 @@ export class Const {
   public static GetInvolvedPage: string = "/get-involved";
   public static WorkshopChecklistPage: string = "/workshop-checklist";
   public static WorkshopPreparationChecklistPage: string = "/workshop-preparation-checklist";
+  public static WorkshopCoordinationChecklistPage: string = "/workshop-coordination-checklist";
   public static ComingSoonPage: string = "/coming-soon";
 
   public static WordpressEndpoint?: string =
