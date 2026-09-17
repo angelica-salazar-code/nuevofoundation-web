@@ -73,7 +73,7 @@ The Nuevo Foundation is dedicated to inspiring kids to be curious, confident, an
 The **Nuevo Foundation: Workshop Delivery Checklist** is available directly at
 `/workshop-checklist` on the main website. It is a public page, not a private
 resource; it intentionally has no menu, footer, or Get Involved link.
-Its subtitle is "For the Nuevo Foundation team who is delivering a workshop".
+Its subtitle is "For the Nuevo Foundation team member who is delivering a workshop".
 
 Print a fresh blank copy for each workshop, or use the 20 optional on-screen
 checkboxes (11 before, 6 during, 3 after) and print their current state.
@@ -93,7 +93,7 @@ this page is open.
 ### School workshop preparation checklist
 
 `/workshop-preparation-checklist` is a separate, directly accessed page titled
-**Nuevo Foundation What to do before a workshop Checklist**, with the subtitle
+**Nuevo Foundation: What to do before a workshop Checklist**, with the subtitle
 **For the school representative**. It uses the Nuevo Foundation logo,
 yellow/black/white colors, and website fonts. It has no school information
 fields and no submission button, and no navigation links to it have been added.

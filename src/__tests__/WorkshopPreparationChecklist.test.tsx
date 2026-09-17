@@ -8,7 +8,7 @@ import { WorkshopPreparationChecklist } from "../components/static/pages/Worksho
 jest.mock("react-ga", () => ({ pageview: jest.fn() }));
 jest.mock("../assets/logos/Logo_long.svg", () => "logo.svg");
 
-const title = "Nuevo Foundation What to do before a workshop Checklist";
+const title = "Nuevo Foundation: What to do before a workshop Checklist";
 const shared = [
   "Ensure the devices used in the workshop have allowlisted the following websites:",
   "Ensure the session will be taught in a room that has a laptop and a projector to display the content to students.",

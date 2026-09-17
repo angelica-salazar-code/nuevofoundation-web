@@ -60,7 +60,7 @@ describe("Workshop organizer checklist", () => {
     })).toBeInTheDocument();
     expect(screen.getAllByRole("group")).toHaveLength(3);
     expect(screen.getAllByRole("checkbox")).toHaveLength(20);
-    const subtitle = screen.getByText("For the Nuevo Foundation team who is delivering a workshop");
+    const subtitle = screen.getByText("For the Nuevo Foundation team member who is delivering a workshop");
     expect(subtitle).toBeInTheDocument();
     expect(subtitle.closest(".checklist-screen-only")).toBeNull();
 
