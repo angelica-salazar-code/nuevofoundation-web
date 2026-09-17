@@ -279,7 +279,7 @@ export const WorkshopChecklist: React.FC = () => {
       <ChecklistPrintStyles />
       <PageTitle title={title} />
       <ChecklistContent>
-        <p><strong>For the Nuevo Foundation team who is delivering a workshop</strong></p>
+        <p><strong>For the Nuevo Foundation team member who is delivering a workshop</strong></p>
         <div className="checklist-screen-only">
           <p>
             Print a fresh copy for each workshop to mark by hand, or tick the
