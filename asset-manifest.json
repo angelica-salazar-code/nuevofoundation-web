@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/nuevofoundation-web/static/css/main.8c012d5f.css",
+    "main.js": "/nuevofoundation-web/static/js/main.7f59aa12.js",
+    "static/media/CodingWorkshop.jpg": "/nuevofoundation-web/static/media/CodingWorkshop.03661babbef221e524a5.jpg",
+    "static/media/SpeakerSeries.jpg": "/nuevofoundation-web/static/media/SpeakerSeries.2e9ae73c9ca65b41ea76.jpg",
+    "static/media/VirtualSession.jpg": "/nuevofoundation-web/static/media/VirtualSession.d7502a9fce2d900057bc.jpg",
+    "static/media/Lato-Semibold.ttf": "/nuevofoundation-web/static/media/Lato-Semibold.d585c7df44df3024c49b.ttf",
+    "static/media/teachers.png": "/nuevofoundation-web/static/media/teachers.1fb7ab948d5ede1c20dc.png",
+    "static/media/students.png": "/nuevofoundation-web/static/media/students.c8604e50eef26bc4c9b3.png",
+    "static/media/volunteers.png": "/nuevofoundation-web/static/media/volunteers.04b0f50eeaf903fd3fef.png",
+    "static/media/Earth.png": "/nuevofoundation-web/static/media/Earth.745eff79a99d6f60ad89.png",
+    "static/media/virtual_session_nuvi.png": "/nuevofoundation-web/static/media/virtual_session_nuvi.d47e10d2301078cd65df.png",
+    "static/media/workshop_nuvi.png": "/nuevofoundation-web/static/media/workshop_nuvi.3c3492b5881384ae90af.png",
+    "static/media/speaker_nuvi.png": "/nuevofoundation-web/static/media/speaker_nuvi.401b613f0ba391fe058b.png",
+    "static/media/nuvimail.png": "/nuevofoundation-web/static/media/nuvimail.4602b13aa213d5428170.png",
+    "static/media/ForbesLogo.png": "/nuevofoundation-web/static/media/ForbesLogo.41997e4db801fe154135.png",
+    "static/media/CSForAllLogo.png": "/nuevofoundation-web/static/media/CSForAllLogo.e9cfa90e10f920fc1881.png",
+    "static/media/2018_0814_Pattern_Adjusted.svg": "/nuevofoundation-web/static/media/2018_0814_Pattern_Adjusted.77cb4938d286d1db6b7b0cf463a9244b.svg",
+    "static/media/MicrosoftLogo.png": "/nuevofoundation-web/static/media/MicrosoftLogo.92fda3078d8b8fe4ff3d.png",
+    "static/media/MarieClaireLogo.png": "/nuevofoundation-web/static/media/MarieClaireLogo.f15d59615ce61d4d8256.png",
+    "static/media/TelemundoLogo.png": "/nuevofoundation-web/static/media/TelemundoLogo.4aba7670fe9ab6f184e6.png",
+    "static/media/AAASIFTHENLogo.png": "/nuevofoundation-web/static/media/AAASIFTHENLogo.ca06663127ee203732be.png",
+    "static/media/Logo_long.svg": "/nuevofoundation-web/static/media/Logo_long.1c1ab7b335042df88ca06737fec6c314.svg",
+    "index.html": "/nuevofoundation-web/index.html",
+    "main.8c012d5f.css.map": "/nuevofoundation-web/static/css/main.8c012d5f.css.map",
+    "main.7f59aa12.js.map": "/nuevofoundation-web/static/js/main.7f59aa12.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8c012d5f.css",
+    "static/js/main.7f59aa12.js"
+  ]
+}
